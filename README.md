@@ -1,75 +1,151 @@
-# **AI Portfolio Advisor Project**
-### **Course**: Advanced Programming in Python
-### **Authors**: *Matteo Beschi, Cristina Saramondi, Paolo Roberti*
+# AI Portfolio Advisor 📊
 
+> A Python-based AI agent for portfolio performance analysis, optimization, and automated reporting.
 
-AI Portfolio Advisor is a **Python-based financial analysis system** that combines portfolio analytics, visualization, optimization, and an AI agent to support portfolio performance evaluation and decision-making.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+![LLM](https://img.shields.io/badge/LLM-LLaMA%203.1%208b%20(Groq)-purple)
+![Finance](https://img.shields.io/badge/Finance-yfinance%20%7C%20NewsAPI-green)
+![DB](https://img.shields.io/badge/Database-SQLite-orange)
+![License](https://img.shields.io/badge/License-Educational-lightgrey)
 
-### Key Capabilities
+---
 
-**Dynamic SQL database**
-- Unique table showing user's transactions
+## Overview
+
+**AI Portfolio Advisor** is a modular financial analysis system that combines classical portfolio theory with modern AI capabilities. Built as a course project for *Advanced Programming in Python* at the **Université de Strasbourg**, it allows users to interact with their investment portfolio through natural language, receive AI-generated insights, and generate professional PDF reports.
+
+The system integrates:
+- **Markowitz mean-variance optimisation** for portfolio allocation
+- **Sentiment analysis** on financial news via NewsAPI
+- **A conversational AI agent** powered by Groq (LLaMA 3.1 8b) for natural language queries
+- **Automated PDF reporting** with embedded charts and AI commentary
+
+---
+
+## Key Features
+
+### 🗄️ Dynamic Portfolio Database
+- SQLite-backed transaction ledger, unique per user
 - AI agent can insert and delete transactions via natural language prompts
 
-**API tools**
-- Fetch historical and latest close prices from yfinance
- 
- **Portfolio Analysis**
-- Portfolio returns (ROI)
+### 📈 Portfolio Analytics
+- Portfolio returns (ROI) and performance breakdown
 - Best and worst performing assets
-- Sector diversification
-- Mean-variance (Markowitz) optimization
-- Sentiment analysis using NewsApi
+- Sector diversification analysis
+- Mean-variance (Markowitz) optimisation
+- Financial sentiment analysis via NewsAPI
 
-**Visualization Tools**
+### 📊 Visualisation
 - Portfolio value over time
 - Invested vs current value per asset
 - Sector allocation and sector performance
-- Normalized price comparison between assets
-- Normalized comparison portfolio vs benchmark (^GSPC)
+- Normalised price comparison between assets
+- Portfolio vs benchmark (^GSPC) comparison
 - Correlation heatmaps
-- Markowitz allocation comparison
+- Markowitz optimal allocation chart
 
-**AI Agent**
-- Natural language interface (terminal-based)
-- Automatic tool selection
-- AI-generated insights and recommendations using FinGpt
+### 🤖 AI Agent
+- Natural language terminal interface
+- Automatic tool selection based on user query
+- AI-generated insights and recommendations (Groq / LLaMA 3.1 8b)
 
-**Reporting**
-- PDF portfolio overview report
-- PDF risk & optimization report
-- Both include relevant charts, tables, and AI insights
+### 📄 Automated Reporting
+- PDF portfolio overview report (performance, charts, insights)
+- PDF risk & optimisation report (Markowitz, correlation, recommendations)
 
-### Project Structure
-agent/ # AI agent, LLM client, prompts
+---
 
-tools/
+## Project Structure
 
-├─ analysis/ # Financial analysis tools
-
-├─ api/ # yfinance connection
-
-├─ visualization/ # Chart generation
-
-├─ reporting/ # PDF reporting
-
-└─ database/ # Portfolio storage (SQLite)
-
-plots/ # Generated charts
-
-reports/ # Generated PDF reports
-
-main.py # Entry point
-
-### Example Prompts
-
-```text
-What is the best performing asset?
-Show asset performance invested vs current value
-Compare AAPL vs GOOGL normalized
-Generate a pdf report of my portfolio overall performance
-Generate a pdf report of Risk & Optimization of my portfolio
 ```
-### Notes
-- The AI agent uses Groq LLM (llama-3.1-8b) for reasoning and commentary.
-- Financial insights are for educational purposes only.
+ai-portfolio-advisor/
+│
+├── agent/                  # AI agent core, LLM client, prompt engineering
+├── tools/
+│   ├── analysis/           # Financial analysis modules (ROI, Markowitz, sentiment)
+│   ├── api/                # yfinance data fetching
+│   ├── visualization/      # Chart generation (matplotlib)
+│   ├── reporting/          # PDF report generation
+│   └── database/           # SQLite portfolio storage
+│
+├── plots/                  # Generated charts output
+├── reports/                # Generated PDF reports output
+├── main.py                 # Entry point
+├── requirements.txt        # Dependencies
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+```bash
+Python 3.10+
+```
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/paoloroberti2000-coder/ai-portfolio-advisor.git
+cd ai-portfolio-advisor
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Set up API keys
+# Create a .env file with:
+# GROQ_API_KEY=your_groq_key
+# NEWS_API_KEY=your_newsapi_key
+
+# 4. Run
+python main.py
+```
+
+---
+
+## Example Queries
+
+Once running, interact with the agent in natural language:
+
+```
+> What is the best performing asset in my portfolio?
+> Show asset performance: invested vs current value
+> Compare AAPL vs GOOGL normalised over the last year
+> Generate a PDF report of my portfolio overall performance
+> Generate a PDF report of Risk & Optimisation of my portfolio
+> Add a transaction: bought 10 shares of MSFT at 420
+```
+
+---
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| Language | Python 3.10+ |
+| LLM / AI Agent | Groq API — LLaMA 3.1 8b |
+| Financial Data | yfinance |
+| Sentiment Analysis | NewsAPI |
+| Portfolio Optimisation | NumPy / SciPy (Markowitz) |
+| Visualisation | Matplotlib |
+| Database | SQLite |
+| Reporting | ReportLab (PDF) |
+
+---
+
+## Authors
+
+This project was developed as part of the *Advanced Programming in Python* course at the **Université de Strasbourg** (Double Degree — Università degli Studi di Brescia).
+
+- **Paolo Roberti** — [GitHub](https://github.com/paoloroberti2000-coder) · [LinkedIn](https://www.linkedin.com/in/paolo-roberti-35670b2a9/)
+- Matteo Beschi
+- Cristina Saramondi
+
+---
+
+## Disclaimer
+
+> Financial insights generated by this tool are for **educational purposes only** and do not constitute investment advice.
